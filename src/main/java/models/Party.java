@@ -13,12 +13,14 @@ public class Party {
     private int yumBeverageCost;
     private int yoEntertainmentCost;
     private int totalCostOfTheEvent;
+    private boolean isDiscounted;
 
-    public Party(int guests, String food, String beverages, String entertainment) {
+    public Party(int guests, String food, String beverages, String entertainment, boolean isDiscounted) {
         this.numberOfGuests = guests;
         this.yumFood = food.toLowerCase();
         this.yumBeverages = beverages.toLowerCase();
         this.yoEntertainment = entertainment.toLowerCase();
+        this.isDiscounted = isDiscounted;
     }
 
     public int getNumberOfGuests() {
@@ -54,7 +56,7 @@ public class Party {
     }
 
 
-    public int calculateCost() {
+    public int calculateCost(boolean isFirstDiscount, boolean isSecondDiscount) {
         if (yumFood.equalsIgnoreCase("full course")){
             yumFoodCost = 80;
         } else if (yumFood.equals("light meal")){
@@ -81,6 +83,12 @@ public class Party {
 
         totalCostOfTheEvent = ((yumFoodCost + yumBeverageCost) * numberOfGuests + yoEntertainmentCost);
 
+        if(isFirstDiscount) {
+            totalCostOfTheEvent = totalCostOfTheEvent - 50;
+        }
+        if(isSecondDiscount) {
+            totalCostOfTheEvent = totalCostOfTheEvent - 50;
+        }
         return totalCostOfTheEvent;
     }
 }
