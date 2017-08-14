@@ -60,6 +60,12 @@ public class PartyTest {
         assertEquals(21650, testParty.calculateCost(true, false));
     }
 
+    @Test
+    public void runTest_calculateCostWith100Guests_Beverages() throws Exception {
+        Party testParty = new Party(100, "FULL COURSE" , "Light Refreshments" , "LIVE BAND", true);
+        assertEquals(11100, testParty.calculateCost(true, true));
+    }
+
 
 
 

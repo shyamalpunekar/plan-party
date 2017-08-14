@@ -18,6 +18,12 @@
   - Example Input: 20 guests, snacks, water, none.
     Example Output: $800
 
+   * It can calculate the estimated cost with discount coupon for a party for guests 150.
+    - Example Input: 150 guests, Full bar, DJ, none.
+      Example Output: 21650
+
+
+
 ## Setup/Installation Requirements
 
   You will need gradle installed on your device.
