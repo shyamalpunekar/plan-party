@@ -55,7 +55,7 @@ public class Party {
 
 
     public int calculateCost() {
-        if (yumFood.equals("full course")){
+        if (yumFood.equalsIgnoreCase("full course")){
             yumFoodCost = 80;
         } else if (yumFood.equals("light meal")){
             yumFoodCost = 20;
@@ -63,7 +63,7 @@ public class Party {
             yumFoodCost = 10;
         }
 
-        if (yumBeverages.equals("full bar")){
+        if (yumBeverages.equalsIgnoreCase("full bar")){
             yumBeverageCost = 50;
         } else if (yumBeverages.equals("light refreshments")){
             yumBeverageCost = 10;
@@ -71,7 +71,7 @@ public class Party {
             yumBeverageCost = 5;
         }
 
-        if (yoEntertainment.equals("live band")){
+        if (yoEntertainment.equalsIgnoreCase("live band")){
             yoEntertainmentCost = 2200;
         } else if (yoEntertainment.equals("dj")){
             yoEntertainmentCost = 1500;

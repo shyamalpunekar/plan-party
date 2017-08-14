@@ -25,50 +25,38 @@ public class App {
         try {
             while (mainAppRunning) {
                 String userAnswer = bufferedReader.readLine().toUpperCase();
-                if (userAnswer.equals("NO")) {
-                    System.out.println("How many guests are you expecting at your party? Enter number");
-                    guests = Integer.parseInt(bufferedReader.readLine());
-                    System.out.println("Please choose one of the following for your food service: full course, light meal or snacks");
-                    boolean checkFood = true;
-                    while (checkFood) {
-                        food = bufferedReader.readLine().toLowerCase();
-                        if (food.equals("full course") || food.equals("light meal") || food.equals("snacks")) {
-                            checkFood = false;
-                        } else {
-                            System.out.println("Sorry, we don't recognize your input. Please enter one of the following: " +
-                                    "full course, light meal, snacks.");
-                        }
-                    }
-                    System.out.println("Please choose one of the options for beverages: full bar, light refreshments, water");
-                    boolean checkBeverage = true;
-                    while (checkBeverage) {
-                        beverages = bufferedReader.readLine().toLowerCase();
-                        if (beverages.equals("full bar") || beverages.equals("light refreshments") || beverages.equals("water")) {
-                            checkBeverage = false;
-                        } else {
-                            System.out.println("Sorry, we don't recognize your input. Please enter one of the following: " +
-                                    "full bar, light refreshments, water.");
-                        }
-                    }
-                    System.out.println("Please choose one of the following for your entertainment service: live band, DJ, none");
-                    boolean checkEntertainment = true;
-                    while (checkEntertainment) {
-                        entertainment = bufferedReader.readLine().toLowerCase();
-                        if (entertainment.equals("dj") || entertainment.equals("live band") || entertainment.equals("none")) {
-                            checkEntertainment = false;
-                        } else {
-                            System.out.println("Sorry, we don't recognize your input. Please enter one of the " +
-                                    "following: live band, DJ, none.");
-                        }
-
-                    } mainAppRunning = false;
-                } else if (userAnswer.equals("YES")) {
+                if (userAnswer.equalsIgnoreCase("NO")) {
+                    System.out.println("Thanks for checking with us, have a great day!");
+                }
+                else if (userAnswer.equalsIgnoreCase("YES")) {
                     boolean programRunning = true;
+                    System.out.println("How many guests are you expecting at your party? Enter a number");
+                    guests = Integer.parseInt(bufferedReader.readLine());
+
+                    System.out.println("Please choose one of the following for your food service: Full Course, Light Meal or Snacks");
+
+                    food = bufferedReader.readLine().toLowerCase();
+                    if (!(food.equalsIgnoreCase("Full course") || food.equalsIgnoreCase("Light meal") || food.equalsIgnoreCase("Snacks"))) {
+                        System.out.println("Sorry, we don't recognize your input. Please enter one of the following: " +
+                                "full course, light meal, snacks.");
+                    }
+
+                    System.out.println("Please choose one of the options for beverages: Full bar, Light Refreshments, Water");
+                    beverages = bufferedReader.readLine().toLowerCase();
+                    if (beverages.equalsIgnoreCase("full bar") || beverages.equalsIgnoreCase("light refreshments")
+                            || beverages.equalsIgnoreCase("water")) {
+                        System.out.println("Sorry, we don't recognize your input. Please enter one of the following: " +
+                                "full bar, light refreshments, water.");
+                    }
+
                     while (programRunning) {
+                        Party party = new Party(guests, food, beverages, entertainment);
+                        int cost = party.calculateCost();
+                        System.out.println(String.format("Total cost for your party would be $%d.", cost));
                         Random randomGenerator = new Random();
-                        String[] foodArray = {"full course", "light meal", "snack"};
-                        String[] beverageArray = {"full bar", "light refreshments", "water"};
-                        String[] entertainmentArray = {"live band", "DJ", "none"};
+                        String[] foodArray = {"Full Course", "Light Meal", "Snacks"};
+                        String[] beverageArray = {"Full bar", "Light Refreshments", "Water"};
+                        String[] entertainmentArray = {"Live Band", "DJ", "none"};
                         guests = randomGenerator.nextInt(100) + 1;
                         food = foodArray[randomGenerator.nextInt(3)];
                         beverages = beverageArray[randomGenerator.nextInt(3)];
@@ -95,9 +83,8 @@ public class App {
                     System.out.println("Sorry, We don't recognize your input. Please enter YES or NO.");
                 }
             }
-            Party party = new Party(guests, food, beverages, entertainment);
-            int cost = party.calculateCost();
-            System.out.println(String.format("Total cost for your party would be $%d.", cost));
+
+
 
         }
 
