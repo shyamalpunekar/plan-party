@@ -43,10 +43,23 @@ public class PartyTest {
 
 
     @Test
-    public void runTest_calculateCostWithguest150_21650() throws Exception {
-        Party testParty = new Party(150, "FULL COURSE" , "FULL BAR" , "LIVE BAND", false);
+    public void runTest_calculateCostWithguest100_true() throws Exception {
+        Party testParty = new Party(50, "FULL COURSE" , "FULL BAR" , "LIVE BAND", true);
+        assertEquals(8650, testParty.calculateCost(true, false));
+    }
+
+    @Test
+    public void runTest_calculateCostWithGuest100_21650() throws Exception {
+        Party testParty = new Party(100, "FULL COURSE" , "FULL BAR" , "LIVE BAND", false);
         assertEquals(21650, testParty.calculateCost(true, false));
     }
+
+    @Test
+    public void runTest_calculateCostWithGuest100_true() throws Exception {
+        Party testParty = new Party(100, "FULL COURSE" , "FULL BAR" , "LIVE BAND", true);
+        assertEquals(21650, testParty.calculateCost(true, false));
+    }
+
 
 
 
