@@ -111,7 +111,7 @@ public class App {
                                 System.out.println(String.format("Total cost for your party would be $%d.", cost));
                                 System.out.println(String.format("Here are the details for your party: Number of guests: %d, " +
                                         "Food Service: %s, Beverage Service: %s, Entertainment: %s." +
-                                        "New Party or See Cost", guests, food, beverages, entertainment));
+                                        "", guests, food, beverages, entertainment));
 
                                 guests = 150;
                                 food = foodArray[randomGenerator.nextInt(1)];
@@ -121,10 +121,10 @@ public class App {
                                 party = new Party(guests, food, beverages, entertainment, true);
                                 cost = party.calculateCost(true, true);
 
-                                System.out.println(String.format("Here are the details if you change your preferences Number of guests: %d, " +
-                                        "Food Service: %s, Beverage Service: %s, Entertainment: %s." +
-                                        "New Party or See Cost", guests, food, beverages, entertainment));
-                                System.out.println(String.format("Total cost for your party would be $%d.", cost));
+                                //System.out.println(String.format("Here are the details if you change your preferences Number of guests: %d, " +
+                                        //"Food Service: %s, Beverage Service: %s, Entertainment: %s." +
+                                       // "New Party or See Cost", guests, food, beverages, entertainment));
+                                //System.out.println(String.format("Total cost for your party would be $%d.", cost));
                                 isDiscount = false;
 
                             }
