@@ -81,7 +81,7 @@ public class Party {
             yoEntertainmentCost = 500;
         }
 
-        totalCostOfTheEvent = ((yumFoodCost + yumBeverageCost) * numberOfGuests + yoEntertainmentCost);
+        totalCostOfTheEvent = ((yumFoodCost + yumBeverageCost) * numberOfGuests )+ yoEntertainmentCost;
 
         if(isFirstDiscount) {
             totalCostOfTheEvent = totalCostOfTheEvent - 50;

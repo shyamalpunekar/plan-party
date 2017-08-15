@@ -19,14 +19,14 @@ public class PartyTest {
     @Test
     public void runTest_calculateCost_3500() throws Exception {
         Party testParty = new Party(10, "full course" , "full bar" , "live band", true);
-        assertEquals(3500, testParty.calculateCost(true, true));
+        assertEquals(3400, testParty.calculateCost(true, true));
 
     }
 
     @Test
     public void runTest_calculateCostWithUppercase_3500() throws Exception {
         Party testParty = new Party(10, "FULL COURSE" , "FULL BAR" , "LIVE BAND", true);
-        assertEquals(3500, testParty.calculateCost(true, true));
+        assertEquals(3400, testParty.calculateCost(true, true));
     }
 
     @Test
@@ -49,15 +49,15 @@ public class PartyTest {
     }
 
     @Test
-    public void runTest_calculateCostWithGuest100_21650() throws Exception {
+    public void runTest_calculateCostWithGuest100_15150() throws Exception {
         Party testParty = new Party(100, "FULL COURSE" , "FULL BAR" , "LIVE BAND", false);
-        assertEquals(21650, testParty.calculateCost(true, false));
+        assertEquals(15150, testParty.calculateCost(true, false));
     }
 
     @Test
     public void runTest_calculateCostWithGuest100_true() throws Exception {
         Party testParty = new Party(100, "FULL COURSE" , "FULL BAR" , "LIVE BAND", true);
-        assertEquals(21650, testParty.calculateCost(true, false));
+        assertEquals(15150, testParty.calculateCost(true, false));
     }
 
     @Test
@@ -65,7 +65,6 @@ public class PartyTest {
         Party testParty = new Party(100, "FULL COURSE" , "Light Refreshments" , "LIVE BAND", true);
         assertEquals(11100, testParty.calculateCost(true, true));
     }
-
 
 
 
